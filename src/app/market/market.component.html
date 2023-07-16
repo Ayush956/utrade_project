@@ -1,0 +1,115 @@
+<div class="stock">
+    <table>
+        <thead>
+            <tr class="table-heading">
+                <th colspan="4" >ICICI BANK</th>
+                <hr>    
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="bold">Open</td>
+                <td>0.00</td>
+                <td class="bold">High</td>
+                <td>0.00</td>
+            </tr>
+            <tr>
+                <td class="bold">Previous Close</td>
+                <td>641.05</td>
+                <td class="bold">Low</td>
+                <td>0.00</td>
+            </tr>
+            <tr>
+                <td class="bold">Volume</td>
+                <td>0.00</td>
+                <td class="bold">Avg Price</td>
+                <td>0.00</td>
+            </tr>
+            <tr>
+                <td class="bold">Lower Circuit</td>
+                <td>512.85</td>
+                <td class="bold">Upper Circuit</td>
+                <td>769.25</td>
+            </tr>
+            <tr>
+                <button (click)="openNewComponent()">Market Depth</button>
+                <button >Market Scalper</button>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+<div class="temp" *ngIf="showMarketDepth">
+    <div class="example-box" cdkDrag>
+        <div class="market_depth">
+            <table>
+                <thead>
+                    <tr class="table-heading">
+                        <th colspan="6" >ICICI BANK</th>
+                        <hr>    
+                    </tr>
+                    <tr>
+                        <th>Qty</th>
+                        <th>Orders</th>
+                        <th>Ask</th>
+                        <th>Bid</th>
+                        <th>Orders</th>
+                        <th>Qty</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="green">29</td>
+                        <td class="green">29</td>
+                        <td class="green">29</td>
+                        <td class="red">29</td>
+                        <td class="red">29</td>
+                        <td class="red">29</td>
+                    </tr>
+                    <tr>
+                        <td class="green">45</td>
+                        <td class="green">45</td>
+                        <td class="green">45</td>
+                        <td class="red">45</td>
+                        <td class="red">45</td>
+                        <td class="red">45</td>
+                    </tr>
+                    <tr>
+                        <td class="green">87</td>
+                        <td class="green">87</td>
+                        <td class="green">87</td>
+                        <td class="red">87</td>
+                        <td class="red">87</td>
+                        <td class="red">87</td>
+                    </tr>
+                    <tr>
+                        <td class="green">98</td>
+                        <td class="green">98</td>
+                        <td class="green">98</td>
+                        <td class="red">98</td>
+                        <td class="red">98</td>
+                        <td class="red">98</td>
+                    </tr>
+                    <tr>
+                        <td class="green">890</td>
+                        <td class="green">890</td>
+                        <td class="green">890</td>
+                        <td class="red">890</td>
+                        <td class="red">890</td>
+                        <td class="red">890</td>
+                    </tr>
+                    <tr>
+                        <td class="green">34</td>
+                        <td class="green">34</td>
+                        <td class="green">34</td>
+                        <td class="red">34</td>
+                        <td class="red">34</td>
+                        <td class="red">34</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+</div>

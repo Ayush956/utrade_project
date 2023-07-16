@@ -1,0 +1,163 @@
+<div class="search">
+    <div class="text">
+        Happy Place to Earn a Profit
+    </div>
+    <form class="example-form">
+        <input type="text"
+                #box
+               placeholder="Search for a Stock"
+               [formControl]="myControl"
+               [matAutocomplete]="auto"
+               class="example-input">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of options" [value]="option" >
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+        <button type="submit" (click)="openstockfun()" (click)="getvalue(box.value)">Search</button>
+      </form>     
+</div>
+
+<div class="stock" *ngIf="openstock">
+    <table>
+        <thead>
+            <tr class="table-heading">
+                <th colspan="4" >{{name}}</th>
+                <hr>    
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="bold">Open</td>
+                <td>{{open}}</td>
+                <td class="bold">Day_high</td>
+                <td>{{day_high}}</td>
+            </tr>
+            <tr>
+                <td class="bold">Previous Close</td>
+                <td>{{previous_close_price}}</td>
+                <td class="bold">Day_low</td>
+                <td>{{day_low}}</td>
+            </tr>
+            <tr>
+                <td class="bold">52_week_high</td>
+                <td>{{_week_high}}</td>
+                <td class="bold">52_week_low</td>
+                <td>{{_week_low}}</td>
+            </tr>
+            <tr>
+                <td class="bold">LTP</td>
+                <td>{{price}}</td>
+                <td class="bold">LTT</td>
+                <td>{{last_trade_time}}</td>
+            </tr>
+            <tr>
+                <button (click)="openNewComponent()">Market Depth</button>
+                <button (click)="openscalper()">Market Scalper</button>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+<div class="temp" *ngIf="showMarketDepth">
+    <div class="example-box" cdkDrag>
+        <div class="market_depth">
+            <table>
+                <thead>
+                    <tr class="table-heading">
+                        <th colspan="5" >{{name}}</th>
+                        <button mat-icon-button color="warn" (click)="closenewcomponent()">
+                            <mat-icon fontSize="small">close</mat-icon>
+                        </button>
+                        <hr>    
+                    </tr>
+                    <tr>
+                        <th>MktVol</th>
+                        <th>MyVol</th>
+                        <th>Bid</th>
+                        <th>Ask</th>
+                        <th>MyVol</th>
+                        <th>MktVol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="green">29</td>
+                        <td class="green"></td>
+                        <td class="green">{{ltp-0.10 | number:'1.2-2'}}</td>
+                        <td class="red">{{ltp+0.10 | number:'1.2-2'}}</td>
+                        <td class="red"></td>
+                        <td class="red">29</td>
+                    </tr>
+                    <tr>
+                        <td class="green">45</td>
+                        <td class="green"></td>
+                        <td class="green">{{ltp-0.15 | number:'1.2-2'}}</td>
+                        <td class="red">{{ltp+0.15 | number:'1.2-2'}}</td>
+                        <td class="red"></td>
+                        <td class="red">45</td>
+                    </tr>
+                    <tr>
+                        <td class="green">87</td>
+                        <td class="green"></td>
+                        <td class="green">{{ltp-0.20 | number:'1.2-2'}}</td>
+                        <td class="red">{{ltp+0.20 | number:'1.2-2'}}</td>
+                        <td class="red"></td>
+                        <td class="red">87</td>
+                    </tr>
+                    <tr>
+                        <td class="green">98</td>
+                        <td class="green"></td>
+                        <td class="green">{{ltp-0.30 | number:'1.2-2'}}</td>
+                        <td class="red">{{ltp+0.30 | number:'1.2-2'}}</td>
+                        <td class="red"></td>
+                        <td class="red">98</td>
+                    </tr>
+                    <tr>
+                        <td class="green">890</td>
+                        <td class="green"></td>
+                        <td class="green">{{ltp-0.35 | number:'1.2-2'}}</td>
+                        <td class="red">{{ltp+0.35 | number:'1.2-2'}}</td>
+                        <td class="red"></td>
+                        <td class="red">890</td>
+                    </tr>
+                    <tr>
+                        <td class="green">34</td>
+                        <td class="green"></td>
+                        <td class="green">{{ltp-0.40 | number:'1.2-2'}}</td>
+                        <td class="red">{{ltp+0.40 | number:'1.2-2'}}</td>
+                        <td class="red"></td>
+                        <td class="red">34</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+</div>
+<div class="scalper" *ngIf="showscalper">
+    <div class="example-box" cdkDrag>
+        <div class="table-container">
+            <table>
+            <thead>
+                <tr>
+                <th>MyVol</th>
+                <th>Bid</th>
+                <th>Price</th>
+                <th>Ask</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of d">
+                    <td></td>
+                    <td></td>
+                    <td>{{ row }}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+            <button (click)="closescalper()">Close</button>
+            </table>
+        </div>
+    </div>
+</div>
